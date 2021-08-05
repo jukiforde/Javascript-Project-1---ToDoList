@@ -1,0 +1,41 @@
+body {
+  background-color: lightsalmon;
+}
+.ToDo-Main-Page {
+  display: inline-block;
+  text-align: center;
+  position: absolute;
+  top: 5%;
+  left: 30%;
+}
+.above-todo-list {
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+}
+#todo-ul {
+  display: block;
+}
+
+ul li {
+  border: 1px solid black;
+  padding: 10px 20px 10px 20px;
+  margin-top: 5px;
+  background-color: coral;
+  display: block;
+  text-decoration: none;
+}
+ul li:hover {
+  background-color: grey;
+  transition: 0.2s;
+}
+/* Once list item is clicked*/
+.checked {
+  background: red;
+  text-decoration: line-through;
+}
+.btnClose {
+  margin-left: 20px;
+}
+.btnClose:hover {
+  background-color: red;
+}
