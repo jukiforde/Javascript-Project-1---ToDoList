@@ -12,12 +12,19 @@ let listItems = document.getElementsByTagName("LI");
 //**************************************************
 const addCloseBtn = function () {
   for (let i = 0; i <= listItems.length - 1; i++) {
+    let doneBtn = document.createElement("BUTTON");
+    let doneBtnText = document.createTextNode("Done Task");
+
     let xBtn = document.createElement("BUTTON");
     let xBtnChar = document.createTextNode("\u00D7");
+
+    doneBtn.className = "btnDone";
+    doneBtn.appendChild(doneBtnText);
 
     xBtn.className = "btnClose";
     xBtn.appendChild(xBtnChar);
 
+    listItems[i].appendChild(doneBtn);
     listItems[i].appendChild(xBtn);
   }
 };
@@ -29,23 +36,37 @@ const addItem = function () {
   newLi.innerText = userInputField.value;
   todoUL.appendChild(newLi);
 
+  let doneBtn = document.createElement("BUTTON");
+  let doneBtnText = document.createTextNode("Done Task");
+
   let xBtn = document.createElement("BUTTON");
   let xBtnText = document.createTextNode("\u00D7");
+
   xBtn.className = "btnClose";
+  doneBtn.className = "btnDone";
+
+  doneBtn.appendChild(doneBtnText);
+  newLi.appendChild(doneBtn);
   xBtn.appendChild(xBtnText);
   newLi.appendChild(xBtn);
 
-  deleteItemOnClick(), 6000;
+  completeOrDeleteItemOnClick();
 };
 
 addButton.addEventListener("click", addItem);
 
-const deleteItemOnClick = function () {
+const completeOrDeleteItemOnClick = function () {
   let xBtn = document.getElementsByClassName("btnClose");
 
   document.querySelectorAll(".btnClose").forEach((item) => {
     item.addEventListener("click", () => {
       item.parentElement.style.display = "none";
+    });
+  });
+
+  document.querySelectorAll(".btnDone").forEach((item) => {
+    item.addEventListener("click", () => {
+      item.parentElement.classList.add("taskcompleted");
     });
   });
 };

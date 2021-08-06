@@ -34,8 +34,23 @@ ul li:hover {
   text-decoration: line-through;
 }
 .btnClose {
-  margin-left: 20px;
+  background-color: grey;
 }
+.btnDone {
+  margin-left: 20px;
+  background-color: lightgreen;
+}
+.btnDone:hover {
+  background-color: green;
+  transition: 0.3s;
+}
+
 .btnClose:hover {
   background-color: red;
+  transition: 0.3s;
+}
+
+.taskcompleted {
+  background-color: green;
+  text-decoration-line: line-through;
 }
